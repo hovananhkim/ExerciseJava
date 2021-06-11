@@ -1,5 +1,5 @@
 public class Exercise14 {
-    public int isSumxEponentiation(int n){
+    public int isSumEponentiation(int n){
         int m=0;
         for (int i=2;i<=5;i++){
             int sum = 0;
@@ -12,8 +12,6 @@ public class Exercise14 {
                 m=i;
                 break;
             }
-            System.out.println(sum);
-            if (sum>n) break;
         }
         return m;
 
