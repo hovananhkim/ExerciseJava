@@ -1,21 +1,26 @@
 public class Exercise14 {
-    public int isSumxEponentiation(int n){
-        int m=0;
-        for (int i=2;i<=5;i++){
-            int sum = 0;
-            int temp = n;
-            while (temp>0){
-                sum += (int)Math.pow(temp%10, i);
-                temp /= 10;
+    public String isSumxEponentiation() {
+        String list = "";
+        for (int i = 10; i <= 99999; i++) {
+            if (check(i)) {
+                list = String.join(" ", list, Integer.toString(i));
             }
-            if (sum == n) {
-                m=i;
-                break;
-            }
-            System.out.println(sum);
-            if (sum>n) break;
         }
-        return m;
+        return list;
+    }
 
+    public boolean check(int n) {
+        int m = Integer.toString(n).length();
+        int temp = n;
+        int sum = 0;
+        while (temp > 0) {
+            sum += (int) Math.pow(temp % 10, m);
+            temp /= 10;
+        }
+        if (sum == n) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
