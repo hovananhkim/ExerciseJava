@@ -1,0 +1,27 @@
+public class Array15 implements MaxArray {
+    @Override
+    public int[] findMaxArray(int[] array, int k) {
+        int[] result = new int[k];
+        for (int i = 0; i < k; i++) {
+            result[i] = array[i];
+        }
+        for (int i = k; i < array.length; i++) {
+            int index = getIndexMinArray(result);
+            System.out.println(index);
+            if (array[i] > result[index]) {
+                result[index] = array[i];
+            }
+        }
+        return result;
+    }
+
+    public int getIndexMinArray(int[] array) {
+        int i = 0;
+        for (int j = 1; j < array.length; j++) {
+            if (array[i] > array[j]) {
+                i = j;
+            }
+        }
+        return i;
+    }
+}
