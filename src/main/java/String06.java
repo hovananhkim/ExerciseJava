@@ -4,7 +4,7 @@ public class String06 {
             if (str.charAt(i) == str.charAt(i + 1)) {
                 int count = 2;
                 str = deleteCharacter(str, i);
-                for (int j = i + 1; j < str.length() - 1; j--) {
+                for (int j = i + 1; j < str.length() - 1; j++) {
                     if (str.charAt(i) == str.charAt(j)) {
                         str = deleteCharacter(str, j);
                         j--;
