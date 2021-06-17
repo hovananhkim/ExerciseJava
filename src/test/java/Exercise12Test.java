@@ -7,6 +7,6 @@ public class Exercise12Test {
     public void test_Sqrt() {
         assertEquals(new Exercise12().sqrt(0), 0);
 //        assertEquals(new Exercise12().sqrt(8), );
-//        assertEquals(new Exercise12().sqrt(8),Math.sqrt(8));
+        assertEquals(new Exercise12().sqrt(8),2.82843,0.00001);
     }
 }
