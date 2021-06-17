@@ -4,10 +4,9 @@ public class String09 {
         int sumEven = 0;
         for (int i = 0; i < str.length(); i++) {
             if (i % 2 == 0) {
-
-                sumEven += Character.getNumericValue(str.charAt(i));
+                sumEven += str.charAt(i) - '0';
             } else {
-                sumOdd += Character.getNumericValue(str.charAt(i));
+                sumOdd += str.charAt(i) - '0';
             }
         }
         return 10 - (3 * sumEven + sumOdd) % 10;
