@@ -15,12 +15,12 @@ public class Array15 implements MaxArray {
     }
 
     public int getIndexMinArray(int[] array) {
-        int i = 0;
+        int minIndex= 0;
         for (int j = 1; j < array.length; j++) {
-            if (array[i] > array[j]) {
-                i = j;
+            if (array[minIndex] > array[j]) {
+                minIndex = j;
             }
         }
-        return i;
+        return minIndex;
     }
 }
