@@ -7,7 +7,6 @@ public class Array15 implements MaxArray {
         }
         for (int i = k; i < array.length; i++) {
             int index = getIndexMinArray(result);
-            System.out.println(index);
             if (array[i] > result[index]) {
                 result[index] = array[i];
             }
