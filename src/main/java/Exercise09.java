@@ -1,5 +1,5 @@
 public class Exercise09 {
-    public double Pi() {
+    public double pi() {
         double Pi = 3;
         double result = Math.PI;
         for (int i = 1; Math.abs(result - Pi) >= 0.0001; i++) {
