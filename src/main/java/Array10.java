@@ -5,9 +5,13 @@ public class Array10 {
         array = Arrays.copyOf(array, array.length + 1);
         int i = 0;
         while (array[i] < x) {
-            i++;
+            if (i < array.length - 1) {
+                i++;
+            } else {
+                break;
+            }
         }
-        for (int j = array.length - 1; j > i ; j--) {
+        for (int j = array.length - 1; j > i; j--) {
             array[j] = array[j - 1];
         }
         array[i] = x;
