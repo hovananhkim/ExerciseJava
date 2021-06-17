@@ -13,8 +13,7 @@ public class String06 {
                         break;
                     }
                 }
-                str = deleteCharacter(str, i);
-                str = String.join(Integer.toString(count), str.substring(0, i), str.substring(i));
+                str = String.join(Integer.toString(count), str.substring(0, i+1), str.substring(i+1));
             }
 
         }
