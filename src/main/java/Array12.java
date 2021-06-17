@@ -4,11 +4,10 @@ public class Array12 {
         int lenB = b.length;
         if (lenA != lenB) {
             return false;
-        } else {
-            for (int i = 0; i < lenA; i++) {
-                if (a[i] != b[i]) {
-                    return false;
-                }
+        }
+        for (int i = 0; i < lenA; i++) {
+            if (a[i] != b[i]) {
+                return false;
             }
         }
         return true;
