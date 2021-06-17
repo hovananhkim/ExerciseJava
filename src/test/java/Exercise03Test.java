@@ -7,5 +7,8 @@ public class Exercise03Test {
     public void test_listPrime() {
         assertEquals(new Exercise03().primeList(80), "2*2*2*2*5");
         assertEquals(new Exercise03().primeList(2), "2");
+        assertEquals(new Exercise03().primeList(3), "3");
+        assertEquals(new Exercise03().primeList(9), "3*3");
+        assertEquals(new Exercise03().primeList(7), "7");
     }
 }
