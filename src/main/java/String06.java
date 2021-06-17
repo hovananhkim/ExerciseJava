@@ -13,7 +13,7 @@ public class String06 {
                         break;
                     }
                 }
-                str = String.join(Integer.toString(count), str.substring(0, i+1), str.substring(i+1));
+                str = String.join(Integer.toString(count), str.substring(0, i + 1), str.substring(i + 1));
             }
 
         }
@@ -21,7 +21,6 @@ public class String06 {
     }
 
     public String deleteCharacter(String str, int index) {
-        String newString = String.join("", str.substring(0, index), str.substring(index + 1));
-        return newString;
+        return str.substring(0, index) + str.substring(index + 1);
     }
 }
