@@ -1,10 +1,11 @@
 public class Exercise08 {
-    public double Pi(int n){
-        float Pi=0;
-        for (int i=0;i<=n;i++){
-            Pi +=Math.pow(-1,i)*4/(2*i+1);
+    public double Pi() {
+        float Pi = 0;
+        double result = Math.PI;
+        for (int i = 0; Math.abs(result - Pi) >= 0.0001; i++) {
+            Pi += Math.pow(-1, i) * 4 / (2 * i + 1);
         }
         System.out.println(Pi);
-        return Math.round(Pi*10000)/10000.0;
+        return Double.parseDouble(String.format("%.4f", Pi));
     }
 }
