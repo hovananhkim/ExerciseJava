@@ -28,7 +28,7 @@ public class Array04 {
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = array.length - 1; j > i; j--) {
                 if (array[i] > array[j]) {
-                    permutation(array, i, j);
+                    swapElements(array, i, j);
                 }
             }
         }
@@ -42,7 +42,7 @@ public class Array04 {
         array[y] = temp;
     }
 
-    public void permutation(int[] array, int x, int y) {
+    public void swapElements(int[] array, int x, int y) {
         int temp = array[x];
         array[x] = array[y];
         array[y] = temp;
