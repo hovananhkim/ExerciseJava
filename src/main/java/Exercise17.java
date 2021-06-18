@@ -9,7 +9,6 @@ public class Exercise17 {
             if (temp * temp >= n) right = temp;
             else left = temp;
         }
-//        return Double.parseDouble(String.format("%.4f", left));
         return left;
     }
 }
