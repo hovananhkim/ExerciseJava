@@ -6,6 +6,6 @@ public class Exercise20Test {
     public void test_happyNumber(){
         assertEquals(new Exercise20().happyNumber(19),true);
         assertEquals(new Exercise20().happyNumber(10),true);
-        assertEquals(new Exercise20().happyNumber(17),false);
+        assertEquals(new Exercise20().happyNumber(88),false);
     }
 }

@@ -1,17 +1,22 @@
 public class Exercise20 {
     public boolean happyNumber(int n) {
-        for (int loop = 100; loop > 0; loop--) {
-            int temp = n;
-            int sum = 0;
-            while (temp > 0) {
-                sum += (temp % 10) * (temp % 10);
-                temp /= 10;
-            }
-            n = sum;
-            if (n == 1) {
-                return true;
-            }
+        int x = n;
+        int y = convert(n);
+        while (x != y) {
+            x=convert(x);
+            y=convert(convert(y));
+        }
+        if (x==1){
+            return true;
         }
         return false;
+    }
+    public int convert(int x) {
+        int sum = 0;
+        while (x > 0) {
+            sum += (x % 10) * (x % 10);
+            x /= 10;
+        }
+        return sum;
     }
 }
