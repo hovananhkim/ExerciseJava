@@ -10,5 +10,6 @@ public class Exercise19Test {
         assertEquals(new Exercise19().writeNumbertoRomanNumerals(444),"CDXLIV");
         assertEquals(new Exercise19().writeNumbertoRomanNumerals(111),"CXI");
         assertEquals(new Exercise19().writeNumbertoRomanNumerals(1001),"MI");
+        assertEquals(new Exercise19().writeNumbertoRomanNumerals(8),"VIII");
     }
 }
