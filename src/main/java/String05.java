@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class String05 {
     public String findCharacterAppearMoreTwice(String str) {
         HashMap<Character, Integer> frequency = getFrequency(str);
-        StringBuilder result = new StringBuilder(str);
+        StringBuilder result = new StringBuilder();
         for (Character key : frequency.keySet()) {
             if (frequency.get(key) >= 2) {
                 result.append(key);
