@@ -1,6 +1,5 @@
 public class Exercise05 {
     public String solveQuadraticEquation(int a, int b, int c) {
-        String result = "";
         double delta = b * b - 4 * a * c;
         if (delta < 0) {
             return "complex";
