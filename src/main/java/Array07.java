@@ -1,16 +1,18 @@
+import java.util.Arrays;
+
 public class Array07 {
     public int[] findArrayAscLongest(int[] array) {
         int begin = 0;
         int end = 0;
-
         for (int i = 0; i < array.length - 1; i++) {
-            for (int j = array.length - 1; j > i; j--) {
-                if (isArrayAsc(array, i, j)) {
-                    if (j - i > end - begin) {
-                        begin = i;
-                        end = j;
-                    }
-                }
+            int left = i;
+            while (array[i] <= array[i + 1]) {
+                i++;
+            }
+            int right = i;
+            if ((end - begin) < (right - left)) {
+                begin = left;
+                end = right;
             }
         }
         int[] result = new int[end - begin + 1];
@@ -18,14 +20,5 @@ public class Array07 {
             result[i - begin] = array[i];
         }
         return result;
-    }
-
-    public boolean isArrayAsc(int[] array, int begin, int end) {
-        for (int i = begin; i < end; i++) {
-            if (array[i] > array[i + 1]) {
-                return false;
-            }
-        }
-        return true;
     }
 }

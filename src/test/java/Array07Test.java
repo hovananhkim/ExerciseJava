@@ -10,5 +10,6 @@ public class Array07Test {
         int[] input = {1, 0, 6, 8, 2, 3, 0};
         int[] output = {0, 6, 8};
         assertEquals(Arrays.equals(new Array07().findArrayAscLongest(input),output), true);
+//        new Array07().findArrayAscLongest(input);
     }
 }
