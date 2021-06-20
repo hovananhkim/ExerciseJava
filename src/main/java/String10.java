@@ -4,7 +4,7 @@ public class String10 {
         int lenB = b.length();
         if (lenA > lenB) {
             b = convert(b, lenA);
-        } else if (lenB > lenA) {
+        } else  {
             a = convert(a, lenB);
         }
         StringBuilder result = new StringBuilder();
