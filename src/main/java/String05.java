@@ -1,7 +1,7 @@
 public class String05 {
     public String findCharacterAppearMoreTwice(String str) {
         StringBuilder result = new StringBuilder();
-        str = str.replaceAll(" ","");
+        str = str.replaceAll(" ", "");
         while (str.length() > 1) {
             if (str.lastIndexOf(str.charAt(0)) > 0) {
                 result.append(str.charAt(0));
