@@ -1,11 +1,11 @@
 import java.util.Locale;
 
 public class Exercise14 {
-    public String isSumxEponentiation() {
-        String list = "";
+    public String isSumEponentiation() {
+        StringBuffer list = new StringBuffer();
         for (int i = 10; i <= 99999; i++) {
             if (check(i)) {
-                list = String.join(" ", list, Integer.toString(i));
+                list.append(" " + i);
             }
         }
         return list.substring(1);
