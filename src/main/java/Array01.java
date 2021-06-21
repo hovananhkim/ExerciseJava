@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Array01 {
-    public String numberRepeatAppear(String listNumber) {
-        String result = "";
+    public ArrayList<Integer> numberRepeatAppear(String listNumber) {
+        ArrayList<Integer> result = new ArrayList<>();
         String[] input = listNumber.split("\\s");
         HashMap<Integer, Integer> frequency = new HashMap<>();
         for (String number : input) {
@@ -14,10 +15,9 @@ public class Array01 {
         }
         for (Integer key : frequency.keySet()) {
             if (frequency.get(key) >= 2) {
-                result = String.join(" ", result, Integer.toString(key));
+                result.add(key);
             }
-            System.out.println(frequency.get(key));
         }
-        return result.substring(1);
+        return result;
     }
 }
