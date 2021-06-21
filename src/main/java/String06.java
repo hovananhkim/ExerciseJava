@@ -1,26 +1,16 @@
 public class String06 {
     public String shortcutString(String str) {
-        for (int i = 0; i < str.length() - 1; i++) {
-            if (str.charAt(i) == str.charAt(i + 1)) {
-                int count = 2;
-                str = deleteCharacter(str, i);
-                for (int j = i + 1; j < str.length() - 1; j++) {
-                    if (str.charAt(i) == str.charAt(j)) {
-                        str = deleteCharacter(str, j);
-                        j--;
-                        count++;
-                    } else {
-                        break;
-                    }
-                }
-                str = String.join(Integer.toString(count), str.substring(0, i + 1), str.substring(i + 1));
+        StringBuilder result = new StringBuilder();
+        while (str.length() > 0) {
+            char firstChar = str.charAt(0);
+            result.append(firstChar);
+            int postion = str.lastIndexOf(firstChar);
+            int sub = postion + 1;
+            if (sub > 1) {
+                result.append(sub);
             }
-
+            str = str.replaceAll(firstChar + "", "");
         }
-        return str;
-    }
-
-    public String deleteCharacter(String str, int index) {
-        return str.substring(0, index) + str.substring(index + 1);
+        return result.toString();
     }
 }
