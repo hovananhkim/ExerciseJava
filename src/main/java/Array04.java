@@ -4,9 +4,9 @@ public class Array04 {
         sort(array);
         int count = len - 1;
         int countEvenNumber = countEvenNumber(array);
-        for (int i = 0; count>=countEvenNumber ; i++) {
+        for (int i = 0; count >= countEvenNumber; i++) {
             if (array[i] % 2 != 0) {
-                addpend(array, i, count);
+                addPend(array, i, count);
                 i--;
                 count--;
             }
@@ -34,7 +34,7 @@ public class Array04 {
         }
     }
 
-    public void addpend(int[] array, int x, int y) {
+    public void addPend(int[] array, int x, int y) {
         int temp = array[x];
         for (int i = x; i < y; i++) {
             array[i] = array[i + 1];
