@@ -5,6 +5,7 @@ public class String04Test {
     @Test
     public void test_isLoop(){
         assertEquals(new String04().isLoop("abc"),false);
-        assertEquals(new String04().isLoop("ababc"),true);
+        assertEquals(new String04().isLoop("abcabc"),true);
+        assertEquals(new String04().isLoop("ababc"),false);
     }
 }
