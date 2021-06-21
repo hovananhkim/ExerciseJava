@@ -9,9 +9,9 @@ public class Array14Test {
         int[][] input2 = {{1, 5, 3}, {2, 6, 5}, {3, 4, 7}};
         int[][] input3 = {{1}};
         int[][] input4 = {{1, 5, 3, 7}, {2, 6, 5, 8}, {3, 4, 7, 9}, {3, 2, 1, 10}};
-        assertEquals(new Array14().determinant(input1, 2), -4);
-        assertEquals(new Array14().determinant(input2, 3), -3);
-        assertEquals(new Array14().determinant(input3, 1), 1);
-        assertEquals(new Array14().determinant(input4, 4), -111);
+        assertEquals(new Array14().determinant(input1), -4);
+        assertEquals(new Array14().determinant(input2), -3);
+        assertEquals(new Array14().determinant(input3), 1);
+        assertEquals(new Array14().determinant(input4), -111);
     }
 }
