@@ -6,10 +6,7 @@ public class Exercise20 {
             x=convert(x);
             y=convert(convert(y));
         }
-        if (x==1){
-            return true;
-        }
-        return false;
+        return x==1;
     }
     public int convert(int x) {
         int sum = 0;
