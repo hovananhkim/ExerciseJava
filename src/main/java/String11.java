@@ -1,7 +1,7 @@
 public class String11 {
     public String sub(String max, String min) {
         int len = max.length();
-        min = convert(min, len);
+        min = convertEqualLength(min, len);
         StringBuilder result = new StringBuilder();
         int sub = 0;
         for (int i = len - 1; i >= 0; i--) {
@@ -17,10 +17,10 @@ public class String11 {
         if (result.charAt(0) == '0') {
             return result.substring(1);
         }
-        return result.substring(0);
+        return result.toString();
     }
 
-    public String convert(String str, int len) {
+    public String convertEqualLength(String str, int len) {
         int lenStr = str.length();
         StringBuilder newStr = new StringBuilder(str);
         newStr = newStr.reverse();
