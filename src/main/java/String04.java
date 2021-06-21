@@ -1,7 +1,7 @@
 public class String04 {
     public boolean isLoop(String str) {
         for (int step = 1; step <= str.length() / 2; step++) {
-            if (isLoop(str.substring(0,step),str)){
+            if (isLoop(str.substring(0, step), str)) {
                 return true;
             }
         }
@@ -14,9 +14,9 @@ public class String04 {
         if (lenB % lenA != 0) {
             return false;
         }
-        for (int i = 0; i < lenB/lenA;i++){
-            String temp = b.substring(i*lenA,(i+1)*lenA);
-            if (!temp.equals(a)){
+        for (int i = 0; i < lenB / lenA; i++) {
+            String temp = b.substring(i * lenA, (i + 1) * lenA);
+            if (!temp.equals(a)) {
                 return false;
             }
         }
