@@ -3,10 +3,11 @@ public class String08 {
         int sumOdd = 0;
         int sumEven = 0;
         for (int i = 0; i < str.length(); i++) {
+            int num = str.charAt(i) - '0';
             if (i % 2 == 0) {
-                sumOdd += Character.getNumericValue(str.charAt(i));
+                sumOdd += num;
             } else {
-                sumEven += Character.getNumericValue(str.charAt(i));
+                sumEven += num;
             }
         }
         if ((sumOdd + 3 * sumEven) % 10 == 0) {
