@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Exercise14 {
     public String isSumxEponentiation() {
         String list = "";
@@ -6,7 +8,7 @@ public class Exercise14 {
                 list = String.join(" ", list, Integer.toString(i));
             }
         }
-        return list;
+        return list.substring(1);
     }
 
     public boolean check(int n) {
@@ -17,10 +19,6 @@ public class Exercise14 {
             sum += (int) Math.pow(temp % 10, m);
             temp /= 10;
         }
-        if (sum == n) {
-            return true;
-        } else {
-            return false;
-        }
+        return sum == n;
     }
 }
