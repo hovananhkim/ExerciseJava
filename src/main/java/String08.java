@@ -10,10 +10,6 @@ public class String08 {
                 sumEven += num;
             }
         }
-        if ((sumOdd + 3 * sumEven) % 10 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return (sumOdd + 3 * sumEven) % 10 == 0;
     }
 }
