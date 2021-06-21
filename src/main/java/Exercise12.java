@@ -5,7 +5,7 @@ public class Exercise12 {
         if (fn == 0) {
             return fn;
         } else
-            for (int i = 0; Math.abs(result-fn)>=0.00001; i++) {
+            for (int i = 0; Math.abs(result - fn) >= 0.00001; i++) {
                 fn = a / (2 * fn) + fn / 2;
             }
         return fn;
