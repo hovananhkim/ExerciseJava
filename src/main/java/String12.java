@@ -12,33 +12,29 @@ public class String12 {
         for (int i = 0; i < listNum.size() - 1; i++) {
             String str1 = listNum.get(i);
             String str2 = listNum.get(i + 1);
-            if ((str1.length() > str2.length()) && (compare(str1, str2) < 0)) {
-                listNum.set(i, str2);
-                listNum.set(i + 1, str1);
-                if (i > 1) {
-                    i -= 2;
+            if (isChild(str2, str1)) {
+                if (str2.charAt(0) > str1.charAt(str1.length() - 1)) {
+                    listNum.set(i, str2);
+                    listNum.set(i + 1, str1);
+                    if (i > 1) {
+                        i -= 2;
+                    }
                 }
             }
         }
-        for (String item : listNum) {
-            result.append(item);
+        for (String num : listNum) {
+            result.append(num);
         }
         return result.toString();
     }
 
-    public int compare(String str1, String str2) {
-        str2 = loop(str2, str1.length());
-        return str1.compareTo(str2);
-    }
-
-    public String loop(String str, int len) {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < len / str.length(); i++) {
-            result.append(str);
+    public boolean isChild(String child, String dad) {
+        int lenChild = child.length();
+        int lenDad = dad.length();
+        if (lenChild > lenDad) {
+            return false;
         }
-        for (int i = 0; i < len % str.length(); i++) {
-            result.append(str.charAt(i));
-        }
-        return result.toString();
+        String temp = dad.substring(0, lenChild);
+        return temp.equals(child);
     }
 }
