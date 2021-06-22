@@ -1,4 +1,6 @@
-import java.util.Date;
+import sun.util.calendar.BaseCalendar;
+
+import java.sql.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +13,7 @@ public class Main {
                 .build();
         StudentController studentController = new StudentController();
         studentController.addStudent(a);
-        studentController.saveToFile("");
+        String path = "src/main/resources/students.json";
+        studentController.saveToFile(path);
     }
 }

@@ -1,9 +1,10 @@
-import java.io.File;
 import java.io.FileWriter;
-import java.nio.file.Path;
+import java.io.IOException;
 import java.util.ArrayList;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
 public class StudentController {
     private ArrayList<Student> students = new ArrayList<>();
 
@@ -16,26 +17,33 @@ public class StudentController {
         students.remove(student);
         return students;
     }
-    private static FileWriter file;
-    public void saveToFile(String path){
-        JSONArray studentList = new JSONArray();
-        for (Student student:students){
-            System.out.println(student.getId());
+
+    public ArrayList<Student> deleteStudent(int i) {
+        students.remove(i);
+        return students;
+    }
+
+    public void saveToFile(String path) {
+        JSONArray studentJsonArray = new JSONArray();
+        for (Student student : students) {
             JSONObject studentObject = new JSONObject();
-            studentObject.put("id",student.getId());
-            studentObject.put("firstname",student.getFirstName());
-            studentList.add(studentObject);
+            studentObject.put("id", student.getId());
+            studentObject.put("firstname", student.getFirstName());
+            studentObject.put("lastname", student.getLastName());
+            studentObject.put("classname", student.getClassName());
+//            studentObject.put("birthday", student.getLastName());
+            studentObject.put("address", student.getAddress());
+            studentJsonArray.add(studentObject);
         }
         try {
-            System.out.println(System.getProperty("user.dir"));
-           file = new FileWriter(System.getProperty("user.dir")+"/students.json");
-            System.out.println(studentList.toJSONString());
-           file.write(studentList.toJSONString());
-           file.flush();
-        } catch (Exception e) {
+            FileWriter studentsJson = new FileWriter(path);
+            studentsJson.write(studentJsonArray.toJSONString());
+            studentsJson.flush();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public Student getById(int id) {
         for (Student student : students) {
             if (student.getId() == id) {

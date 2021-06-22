@@ -1,10 +1,10 @@
-import java.util.Date;
+import java.util.Calendar;
 
 public class Student {
     private int id;
     private String firstName;
     private String lastName;
-    private Date birthDay;
+    private Calendar birthDay;
     private String className;
     private String address;
 
@@ -12,7 +12,7 @@ public class Student {
         private int id;
         private String firstName;
         private String lastName;
-        private Date birthDay;
+        private Calendar birthDay;
         private String className;
         private String address;
 
@@ -31,7 +31,7 @@ public class Student {
             return this;
         }
 
-        public StudentBuilder setBirthDay(Date birthDay) {
+        public StudentBuilder setBirthDay(Calendar birthDay) {
             this.birthDay = birthDay;
             return this;
         }
@@ -57,6 +57,7 @@ public class Student {
             return student;
         }
     }
+
     public int getId() {
         return id;
     }
@@ -69,7 +70,7 @@ public class Student {
         return lastName;
     }
 
-    public Date getBirthDay() {
+    public Calendar getBirthDay() {
         return birthDay;
     }
 
