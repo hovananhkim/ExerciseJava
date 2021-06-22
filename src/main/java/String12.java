@@ -11,17 +11,27 @@ public class String12 {
         for (int i = 0; i < listNum.size() - 1; i++) {
             String str1 = listNum.get(i);
             String str2 = listNum.get(i + 1);
-            if (isChild(str2, str1)) {
-                if (str2.charAt(0) > str1.charAt(str1.length() - 1)) {
-                    listNum.set(i, str2);
-                    listNum.set(i + 1, str1);
+            boolean checkChild = false;
+            while (isChild(str2, str1)) {
+                checkChild = true;
+                str1 = str1.replaceFirst(str2, "");
+            }
+            if (checkChild) {
+                while (isChild(str1, str2)) {
+                    str2 = str2.replaceFirst(str1, "");
+                }
+                if (str2.compareTo(str1) > 0) {
+                    String temp = listNum.get(i);
+                    listNum.set(i, listNum.get(i + 1));
+                    listNum.set(i + 1, temp);
                     if (i > 1) {
                         i -= 2;
                     }
                 }
             }
+
         }
-        return String.join("",listNum);
+        return String.join("", listNum);
     }
 
     public boolean isChild(String child, String dad) {
