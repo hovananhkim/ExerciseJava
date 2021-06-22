@@ -1,27 +1,29 @@
 public class String10 {
     public String sum(String a, String b) {
-        int lenA = a.length();
-        int lenB = b.length();
-        if (lenA > lenB) {
-            b = convert(b, lenA);
-        } else  {
-            a = convert(a, lenB);
+        if (a.length() > b.length()) {
+            b = convertTwoStringEqualLength(b, a.length());
+        } else {
+            a = convertTwoStringEqualLength(a, b.length());
         }
         StringBuilder result = new StringBuilder();
-        char OF = '0';
+        int memory = 0;
         for (int i = a.length() - 1; i >= 0; i--) {
-            String sum = a.charAt(i) + b.charAt(i) + OF - '0' * 3 + "";
-            if (sum.length() == 1) {
+            int sum = a.charAt(i) + b.charAt(i) + memory - '0' * 2;
+            if (sum < 10) {
                 result.append(sum);
-                OF ='0';
-            }else {
-                result.append(sum.charAt(1));
-                OF = sum.charAt(0);
+                memory = 0;
+            } else {
+                result.append(sum%10);
+                memory = sum/10;
             }
         }
-        return result.reverse().substring(0);
+        if (memory>0){
+            result.append(memory);
+        }
+        return result.reverse().toString();
     }
-    public String convert(String str, int len) {
+
+    public String convertTwoStringEqualLength(String str, int len) {
         int lenStr = str.length();
         StringBuilder newStr = new StringBuilder(str);
         newStr = newStr.reverse();
