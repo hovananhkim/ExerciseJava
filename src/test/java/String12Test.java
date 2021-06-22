@@ -11,6 +11,6 @@ public class String12Test {
         assertEquals(new String12().createMaxNumberFromArray(input2), "4413");
         assertEquals(new String12().createMaxNumberFromArray(new int []{4, 42}), "442");
         assertEquals(new String12().createMaxNumberFromArray(new int []{4, 45}), "454");
-        assertEquals(new String12().createMaxNumberFromArray(new int []{21, 121}), "21211");
+        assertEquals(new String12().createMaxNumberFromArray(new int []{21, 121}), "21121");
     }
 }

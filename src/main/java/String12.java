@@ -30,7 +30,6 @@ public class String12 {
         if (lenChild > lenDad) {
             return false;
         }
-        String temp = dad.substring(0, lenChild);
-        return temp.equals(child);
+        return dad.startsWith(child);
     }
 }
