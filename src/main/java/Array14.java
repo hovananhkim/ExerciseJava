@@ -1,26 +1,24 @@
 public class Array14 {
     public int determinant(int array[][]) {
-        int det = 0;
-        int n = array.length;
-        if (n == 1) {
+        if (array.length == 1) {
             return array[0][0];
         }
-        for (int k = 0; k < n; k++) {
+        int sum = 0;
+        for (int k = 0; k < array.length; k++) {
             int[][] temp = getArrayIgnoreRowAndColZero(array, k);
             if (k % 2 == 0) {
-                det += array[k][0] * determinant(temp);
+                sum += array[k][0] * determinant(temp);
             } else {
-                det -= array[k][0] * determinant(temp);
+                sum -= array[k][0] * determinant(temp);
             }
         }
-        return det;
+        return sum;
     }
 
     public int[][] getArrayIgnoreRowAndColZero(int[][] array, int row) {
-        int len = array.length;
-        int[][] result = new int[len - 1][len - 1];
-        for (int i = 0; i < len; i++) {
-            for (int j = 1; j < len; j++) {
+        int[][] result = new int[array.length - 1][array.length - 1];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 1; j < array.length; j++) {
                 if (i < row) {
                     result[i][j - 1] = array[i][j];
                 } else if (i > row) {
