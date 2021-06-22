@@ -9,12 +9,12 @@ public class String12 {
         }
         Collections.sort(listNum, Collections.reverseOrder());
         for (int i = 0; i < listNum.size() - 1; i++) {
-            String strLeft = listNum.get(i);
-            String strRight = listNum.get(i + 1);
-            if (strLeft.startsWith(strRight)) {
-                if (addMoreLastCharacterToEqualLength(strRight, strLeft.length()).compareTo(strLeft) > 0) {
-                    listNum.set(i, strRight);
-                    listNum.set(i + 1, strLeft);
+            String numLeft = listNum.get(i);
+            String numRight = listNum.get(i + 1);
+            if (numLeft.startsWith(numRight)) {
+                if ((numRight + numLeft).compareTo(numLeft + numRight) > 0) {
+                    listNum.set(i, numRight);
+                    listNum.set(i + 1, numLeft);
                     if (i > 1) {
                         i -= 2;
                     }
@@ -22,13 +22,5 @@ public class String12 {
             }
         }
         return String.join("", listNum);
-    }
-
-    public String addMoreLastCharacterToEqualLength(String str, int len) {
-        StringBuilder result = new StringBuilder(str);
-        for (int i = str.length(); i < len; i++) {
-            result.append(str.charAt(str.length() - 1));
-        }
-        return result.toString();
     }
 }
