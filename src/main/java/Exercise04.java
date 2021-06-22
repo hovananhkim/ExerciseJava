@@ -1,14 +1,17 @@
+import java.util.ArrayList;
+
 public class Exercise04 {
-    public String listFibonacy(int n) {
-        String listFibonacy = "";
-        listFibonacy = "1 1";
-        int x = 1, y = 1, z;
+    public String listFibonacci(int n) {
+        ArrayList<Integer> listFibonacci = new ArrayList<>();
+        listFibonacci.add(1);
+        listFibonacci.add(1);
+        int x = listFibonacci.get(0);
+        int y = listFibonacci.get(1);
         while (x + y <= n) {
-            z = x + y;
+            listFibonacci.add(x + y);
             x = y;
-            y = z;
-            listFibonacy = listFibonacy.join(" ", listFibonacy, Integer.toString(z));
+            y = listFibonacci.get(listFibonacci.size()-1);
         }
-        return listFibonacy;
+        return String.join("", listFibonacci);
     }
 }
