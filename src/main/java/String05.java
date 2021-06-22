@@ -2,11 +2,10 @@ public class String05 {
     public String findCharacterAppearMoreTwice(String str) {
         StringBuilder result = new StringBuilder();
         str = str.replaceAll(" ", "");
-        while (str.length() > 1) {
-            if (str.lastIndexOf(str.charAt(0)) > 0) {
-                result.append(str.charAt(0));
+        for (int i = 0; i < str.length() - 1; i++) {
+            if (str.lastIndexOf(str.charAt(i)) > i && result.indexOf(str.charAt(i) + "") < 0) {
+                result.append(str.charAt(i));
             }
-            str = str.replaceAll(str.charAt(0) + "", "");
         }
         return result.toString();
     }
