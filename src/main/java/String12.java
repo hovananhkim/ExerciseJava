@@ -9,37 +9,26 @@ public class String12 {
         }
         Collections.sort(listNum, Collections.reverseOrder());
         for (int i = 0; i < listNum.size() - 1; i++) {
-            String str1 = listNum.get(i);
-            String str2 = listNum.get(i + 1);
-            boolean checkChild = false;
-            while (isChild(str2, str1)) {
-                checkChild = true;
-                str1 = str1.replaceFirst(str2, "");
-            }
-            if (checkChild) {
-                while (isChild(str1, str2)) {
-                    str2 = str2.replaceFirst(str1, "");
-                }
-                if (str2.compareTo(str1) > 0) {
-                    String temp = listNum.get(i);
-                    listNum.set(i, listNum.get(i + 1));
-                    listNum.set(i + 1, temp);
+            String strLeft = listNum.get(i);
+            String strRight = listNum.get(i + 1);
+            if (strLeft.startsWith(strRight)) {
+                if (addMoreLastCharacterToEqualLength(strRight, strLeft.length()).compareTo(strLeft) > 0) {
+                    listNum.set(i, strRight);
+                    listNum.set(i + 1, strLeft);
                     if (i > 1) {
                         i -= 2;
                     }
                 }
             }
-
         }
         return String.join("", listNum);
     }
 
-    public boolean isChild(String child, String dad) {
-        int lenChild = child.length();
-        int lenDad = dad.length();
-        if (lenChild > lenDad) {
-            return false;
+    public String addMoreLastCharacterToEqualLength(String str, int len) {
+        StringBuilder result = new StringBuilder(str);
+        for (int i = str.length(); i < len; i++) {
+            result.append(str.charAt(str.length() - 1));
         }
-        return dad.startsWith(child);
+        return result.toString();
     }
 }
