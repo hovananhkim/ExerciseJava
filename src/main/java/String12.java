@@ -8,7 +8,6 @@ public class String12 {
             listNum.add(Integer.toString(array[i]));
         }
         Collections.sort(listNum, Collections.reverseOrder());
-        StringBuilder result = new StringBuilder();
         for (int i = 0; i < listNum.size() - 1; i++) {
             String str1 = listNum.get(i);
             String str2 = listNum.get(i + 1);
@@ -22,10 +21,7 @@ public class String12 {
                 }
             }
         }
-        for (String num : listNum) {
-            result.append(num);
-        }
-        return result.toString();
+        return String.join("",listNum);
     }
 
     public boolean isChild(String child, String dad) {
