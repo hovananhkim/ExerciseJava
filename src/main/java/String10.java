@@ -10,7 +10,7 @@ public class String10 {
         for (int i = a.length() - 1; i >= 0; i--) {
             int sum = a.charAt(i) + b.charAt(i) + memory - '0' * 2;
             if (sum < 10) {
-                result.insert(0, sum);
+                result.append(sum);
                 memory = 0;
             } else {
                 result.append(sum % 10);
@@ -20,7 +20,7 @@ public class String10 {
         if (memory > 0) {
             result.append(memory);
         }
-        return result.toString();
+        return result.reverse().toString();
     }
 
     public String convertTwoStringEqualLength(String str, int len) {
