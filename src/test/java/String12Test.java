@@ -9,5 +9,8 @@ public class String12Test {
         int[] input2 = {4,41,3};
         assertEquals(new String12().createMaxNumberFromArray(input), "66134332221210");
         assertEquals(new String12().createMaxNumberFromArray(input2), "4413");
+        assertEquals(new String12().createMaxNumberFromArray(new int []{4, 42}), "442");
+        assertEquals(new String12().createMaxNumberFromArray(new int []{4, 45}), "454");
+        assertEquals(new String12().createMaxNumberFromArray(new int []{21, 121}), "21211");
     }
 }
