@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Array07 {
     public int[] findArrayAscLongest(int[] array) {
         int begin = 0;
