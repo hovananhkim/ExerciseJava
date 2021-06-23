@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Exercise04 {
-    public String listFibonacci(int n) {
+    public int[] listFibonacci(int n) {
         ArrayList<Integer> listFibonacci = new ArrayList<>();
         listFibonacci.add(1);
         listFibonacci.add(1);
@@ -10,8 +10,8 @@ public class Exercise04 {
         while (x + y <= n) {
             listFibonacci.add(x + y);
             x = y;
-            y = listFibonacci.get(listFibonacci.size()-1);
+            y = listFibonacci.get(listFibonacci.size() - 1);
         }
-        return String.join("", listFibonacci);
+        return listFibonacci.stream().mapToInt(Integer::intValue).toArray();
     }
 }
