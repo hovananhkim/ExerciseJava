@@ -1,50 +1,23 @@
-public class Array04 {
-    public int[] array04(int[] array) {
-        int len = array.length;
-        sort(array);
-        int count = len - 1;
-        int countEvenNumber = countEvenNumber(array);
-        for (int i = 0; count >= countEvenNumber; i++) {
-            if (array[i] % 2 != 0) {
-                addPend(array, i, count);
-                i--;
-                count--;
-            }
-        }
-        return array;
-    }
+import java.util.ArrayList;
+import java.util.Comparator;
 
-    public int countEvenNumber(int[] array) {
-        int count = 0;
+public class Array04 {
+    public int[] sort(int[] array) {
+        ArrayList<Integer> evens = new ArrayList<>();
+        ArrayList<Integer> odds = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
-                count++;
+                evens.add(array[i]);
+            } else {
+                odds.add(array[i]);
             }
         }
-        return count;
-    }
-
-    public void sort(int[] array) {
-        for (int i = 0; i < array.length - 1; i++) {
-            for (int j = array.length - 1; j > i; j--) {
-                if (array[i] > array[j]) {
-                    swapElements(array, i, j);
-                }
-            }
+        evens.sort(Comparator.naturalOrder());
+        odds.sort(Comparator.reverseOrder());
+        evens.addAll(odds);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = evens.get(i);
         }
-    }
-
-    public void addPend(int[] array, int x, int y) {
-        int temp = array[x];
-        for (int i = x; i < y; i++) {
-            array[i] = array[i + 1];
-        }
-        array[y] = temp;
-    }
-
-    public void swapElements(int[] array, int x, int y) {
-        int temp = array[x];
-        array[x] = array[y];
-        array[y] = temp;
+        return array;
     }
 }
