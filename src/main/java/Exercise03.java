@@ -1,18 +1,17 @@
+import java.util.ArrayList;
+
 public class Exercise03 {
-    public String primeList(int n) {
-        int prime = 2;
-        String primeList = "";
-        if (n == 2) {
-            return "2";
-        }
-        while (n >= prime) {
-            while (n % prime == 0) {
-                primeList = String.join("*", primeList, Integer.toString(prime));
-                n /= prime;
+    public String primeNumberAnalysis(int n) {
+        ArrayList<String> primeList = new ArrayList<>();
+        int i = 2;
+        while (n > 1) {
+            if (n % i == 0) {
+                primeList.add(Integer.toString(i));
+                n = n / i;
+            } else {
+                i++;
             }
-            prime++;
         }
-        System.out.println(primeList);
-        return primeList.substring(1);
+        return String.join("*", primeList);
     }
 }
