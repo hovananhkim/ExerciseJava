@@ -2,13 +2,11 @@ public class Exercise17 {
     public double sqrt(double n) {
         double left = 0;
         double right = n;
-        double result = Math.sqrt(n);
-        while (result - left >= 0.0001) {
+        while (Math.abs(left * left - n) > 0.0001) {
             double temp = (left + right) / 2.0;
             if (temp * temp >= n) {
                 right = temp;
-            }
-            else {
+            } else {
                 left = temp;
             }
         }
