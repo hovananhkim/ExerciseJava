@@ -1,20 +1,12 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Array10 {
-    public int[] addNumber(int[] array, int x) {
-        array = Arrays.copyOf(array, array.length + 1);
-        int i = 0;
-        while (array[i] < x) {
-            if (i < array.length - 1) {
-                i++;
-            } else {
-                break;
-            }
-        }
-        for (int j = array.length - 1; j > i; j--) {
-            array[j] = array[j - 1];
-        }
-        array[i] = x;
-        return array;
+    public int[] insertNumber(int[] array, int x) {
+        int[] result = Arrays.copyOf(array, array.length + 1);
+        result[array.length] = x;
+        Arrays.sort(result);
+        return result;
     }
 }
