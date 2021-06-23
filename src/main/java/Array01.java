@@ -2,22 +2,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Array01 {
-    public ArrayList<Integer> numberRepeatAppear(String listNumber) {
-        ArrayList<Integer> result = new ArrayList<>();
-        String[] input = listNumber.split("\\s");
-        HashMap<Integer, Integer> frequency = new HashMap<>();
-        for (String number : input) {
-            int num = Integer.parseInt(number);
-            if (!frequency.containsKey(num)) {
-                frequency.put(num, 0);
-            }
-            frequency.put(num, frequency.get(num) + 1);
-        }
-        for (Integer key : frequency.keySet()) {
-            if (frequency.get(key) >= 2) {
-                result.add(key);
+    public String numberRepeatAppear(int[] nums) {
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = 0; i < nums.length - 1; i++) {
+            String num = Integer.toString(nums[i]);
+            if (lastIndexOf(nums, nums[i]) > i && !result.contains(num)) {
+                result.add(num);
             }
         }
-        return result;
+        return String.join(" ", result);
+    }
+
+    public int lastIndexOf(int[] nums, int number) {
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (number == nums[i]) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
