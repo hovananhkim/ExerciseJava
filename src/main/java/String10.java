@@ -1,21 +1,16 @@
 public class String10 {
     public String sum(String a, String b) {
         if (a.length() > b.length()) {
-            b = convertTwoStringEqualLength(b, a.length());
+            b = padZero(b, a.length());
         } else {
-            a = convertTwoStringEqualLength(a, b.length());
+            a = padZero(a, b.length());
         }
         StringBuilder result = new StringBuilder();
         int memory = 0;
         for (int i = a.length() - 1; i >= 0; i--) {
             int sum = a.charAt(i) + b.charAt(i) + memory - '0' * 2;
-            if (sum < 10) {
-                result.append(sum);
-                memory = 0;
-            } else {
-                result.append(sum % 10);
-                memory = sum / 10;
-            }
+            result.append(sum % 10);
+            memory = sum / 10;
         }
         if (memory > 0) {
             result.append(memory);
@@ -23,12 +18,7 @@ public class String10 {
         return result.reverse().toString();
     }
 
-    public String convertTwoStringEqualLength(String str, int len) {
-        int lenStr = str.length();
-        StringBuilder newStr = new StringBuilder(str);
-        for (int i = lenStr; i < len; i++) {
-            newStr.insert(0, 0);
-        }
-        return newStr.toString();
+    public String padZero(String str, int expectedLength) {
+        return String.format("%" + expectedLength + "s", str).replace(' ', '0');
     }
 }
