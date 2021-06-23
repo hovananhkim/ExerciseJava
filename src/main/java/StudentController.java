@@ -1,9 +1,13 @@
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class StudentController {
     private ArrayList<Student> students = new ArrayList<>();
@@ -23,6 +27,7 @@ public class StudentController {
         return students;
     }
 
+    @SuppressWarnings("unchecked")
     public void saveToFile(String path) {
         JSONArray studentJsonArray = new JSONArray();
         for (Student student : students) {
@@ -44,6 +49,22 @@ public class StudentController {
         }
     }
 
+    @SuppressWarnings("unchecked")
+    public void loadFromFile(String path) {
+        JSONParser jsonParser = new JSONParser();
+        try (FileReader fileReader = new FileReader(path)) {
+            Object obj = jsonParser.parse(fileReader);
+            JSONArray studentJsonArray = (JSONArray) obj;
+//            studentJsonArray.forEach(student ->parseStudentObject((JSONObject) student));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
     public Student getById(int id) {
         for (Student student : students) {
             if (student.getId() == id) {
@@ -51,6 +72,12 @@ public class StudentController {
             }
         }
         return null;
+    }
+    private void parseStudentObject(JSONObject studentJsonObject){
+        Student student = new Student.StudentBuilder()
+                .setId((Integer) studentJsonObject.get("id"))
+                .setFirstName((String) studentJsonObject.get("firstname"))
+                .build();
     }
 
     public ArrayList<Student> findByName(String firstName) {
