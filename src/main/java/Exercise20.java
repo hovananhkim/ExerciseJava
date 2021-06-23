@@ -3,11 +3,12 @@ public class Exercise20 {
         int x = n;
         int y = convert(n);
         while (x != y) {
-            x=convert(x);
-            y=convert(convert(y));
+            x = convert(x);
+            y = convert(convert(y));
         }
-        return x==1;
+        return x == 1;
     }
+
     public int convert(int x) {
         int sum = 0;
         while (x > 0) {
