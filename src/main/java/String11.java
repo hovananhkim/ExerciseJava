@@ -3,39 +3,34 @@ public class String11 {
         if (minuend.equals(subtrahend)) {
             return "0";
         }
-        if ((minuend.length() == subtrahend.length()&&minuend.compareTo(subtrahend)>0)||minuend.length() > subtrahend.length()) {
+        if (minuend.length() > subtrahend.length() || (minuend.length() == subtrahend.length() && minuend.compareTo(subtrahend) > 0)) {
             return subMaxMin(minuend, subtrahend).toString();
         }
+
         return subMaxMin(subtrahend, minuend).insert(0, "-").toString();
     }
 
-    public String convertEqualLength(String str, int len) {
-        int lenStr = str.length();
-        StringBuilder newStr = new StringBuilder(str);
-        newStr = newStr.reverse();
-        for (int i = lenStr; i < len; i++) {
-            newStr = newStr.append(0);
+    public int getDigitFromRight(String str, int position) {
+        if (str.length() > position) {
+            return str.charAt(str.length() - position - 1) - '0';
         }
-        return newStr.reverse().toString();
+        return 0;
     }
 
-    public StringBuilder subMaxMin(String minuend, String subtrahend) {
-        int lenMinuend = minuend.length();
-        subtrahend = convertEqualLength(subtrahend, lenMinuend);
+    public StringBuilder subMaxMin(String max, String min) {
         StringBuilder result = new StringBuilder();
         int memory = 0;
-        for (int i = lenMinuend - 1; i >= 0; i--) {
-            if (minuend.charAt(i) - subtrahend.charAt(i) >= memory) {
-                result.append(minuend.charAt(i) - subtrahend.charAt(i) - memory);
-                memory = 0;
-            } else {
-                result.append(minuend.charAt(i) - subtrahend.charAt(i) - memory + 10);
+        for (int i = 0; i < max.length(); i++) {
+            int currentMinus = getDigitFromRight(max, i) - getDigitFromRight(min, i) - memory;
+            memory = 0;
+            if (currentMinus < 0) {
+                currentMinus += 10;
                 memory = 1;
             }
+            result.insert(0, currentMinus);
         }
-        result.reverse();
-        if (result.charAt(0) == '0') {
-            return result.delete(0, 1);
+        while (result.toString().startsWith("0")) {
+            result.replace(0, 1, "");
         }
         return result;
     }
