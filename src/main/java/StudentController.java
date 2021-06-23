@@ -36,7 +36,7 @@ public class StudentController {
             studentObject.put("firstname", student.getFirstName());
             studentObject.put("lastname", student.getLastName());
             studentObject.put("classname", student.getClassName());
-//            studentObject.put("birthday", student.getLastName());
+//            studentObject.put("birthday", student.getBirthDay());
             studentObject.put("address", student.getAddress());
             studentJsonArray.add(studentObject);
         }
@@ -55,7 +55,14 @@ public class StudentController {
         try (FileReader fileReader = new FileReader(path)) {
             Object obj = jsonParser.parse(fileReader);
             JSONArray studentJsonArray = (JSONArray) obj;
-//            studentJsonArray.forEach(student ->parseStudentObject((JSONObject) student));
+            for (int i = 0; i < studentJsonArray.size(); i++) {
+                JSONObject studentJsonObject = (JSONObject) studentJsonArray.get(i);
+                Student student = new Student.StudentBuilder()
+                        .setId((Long) studentJsonObject.get("id"))
+                        .setFirstName((String) studentJsonObject.get("firstname"))
+                        .build();
+                students.add(student);
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -65,19 +72,13 @@ public class StudentController {
         }
     }
 
-    public Student getById(int id) {
+    public Student getById(long id) {
         for (Student student : students) {
             if (student.getId() == id) {
                 return student;
             }
         }
         return null;
-    }
-    private void parseStudentObject(JSONObject studentJsonObject){
-        Student student = new Student.StudentBuilder()
-                .setId((Integer) studentJsonObject.get("id"))
-                .setFirstName((String) studentJsonObject.get("firstname"))
-                .build();
     }
 
     public ArrayList<Student> findByName(String firstName) {

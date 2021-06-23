@@ -16,6 +16,6 @@ public class Main {
         String path = "src/main/resources/students.json";
 //        studentController.saveToFile(path);
         studentController.loadFromFile(path);
-//        System.out.println(studentController.getById(1).getFirstName());
+        System.out.println(studentController.getById(1).getFirstName());
     }
 }

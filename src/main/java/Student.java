@@ -1,7 +1,7 @@
 import java.util.Calendar;
 
 public class Student {
-    private int id;
+    private long id;
     private String firstName;
     private String lastName;
     private Calendar birthDay;
@@ -9,14 +9,14 @@ public class Student {
     private String address;
 
     public static class StudentBuilder {
-        private int id;
+        private long id;
         private String firstName;
         private String lastName;
         private Calendar birthDay;
         private String className;
         private String address;
 
-        public StudentBuilder setId(int id) {
+        public StudentBuilder setId(long id) {
             this.id = id;
             return this;
         }
@@ -58,7 +58,7 @@ public class Student {
         }
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
