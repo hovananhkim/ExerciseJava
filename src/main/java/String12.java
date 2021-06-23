@@ -15,7 +15,7 @@ public class String12 {
                 if ((numRight + numLeft).compareTo(numLeft + numRight) > 0) {
                     listNum.set(i, numRight);
                     listNum.set(i + 1, numLeft);
-                    if (i > 1) {
+                    if (i > 0) {
                         i -= 2;
                     }
                 }
