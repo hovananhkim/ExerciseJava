@@ -14,11 +14,10 @@ public class Array01 {
     }
 
     public int lastIndexOf(int[] nums, int number) {
-        for (int i = nums.length - 1; i >= 0; i--) {
+        for (int i = nums.length - 1;true; i--) {
             if (number == nums[i]) {
                 return i;
             }
         }
-        return -1;
     }
 }
