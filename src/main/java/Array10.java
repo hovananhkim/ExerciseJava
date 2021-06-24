@@ -4,9 +4,10 @@ import java.util.Comparator;
 
 public class Array10 {
     public int[] insertNumber(int[] array, int x) {
-        int[] result = Arrays.copyOf(array, array.length + 1);
-        result[array.length] = x;
-        Arrays.sort(result);
-        return result;
+        int length = array.length;
+        array = Arrays.copyOf(array, length+1);
+        array[length] = x;
+        Arrays.sort(array);
+        return array;
     }
 }
