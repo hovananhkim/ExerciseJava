@@ -9,6 +9,7 @@ public class String10Test {
         assertEquals(new String10().sum("123", "4321"), "4444");
         assertEquals(new String10().sum("999", "1"), "1000");
         assertEquals(new String10().sum("009", "1"), "10");
+        assertEquals(new String10().sum("00", "1"), "1");
         assertEquals(new String10().sum("999", "999"), "1998");
     }
 }
