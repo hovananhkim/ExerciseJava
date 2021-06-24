@@ -3,77 +3,44 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Scanner;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class StudentController {
     private ArrayList<Student> students = new ArrayList<>();
 
-    public ArrayList<Student> addStudent(Student student) {
+    public void add(Student student) {
         students.add(student);
-        return students;
     }
 
-    public ArrayList<Student> deleteStudent(Student student) {
+    public void delete(Student student) {
         students.remove(student);
+    }
+
+    public void deleteAt(int index) {
+        students.remove(index);
+    }
+
+    public void saveToFile(String path) throws IOException {
+        String json = new Gson().toJson(students);
+        FileWriter fileWriter = new FileWriter(path);
+        fileWriter.write(json);
+        fileWriter.flush();
+    }
+
+    public void loadFromFile(String path) throws FileNotFoundException {
+        FileReader fileReader = new FileReader(path);
+        String json = new Scanner(fileReader).useDelimiter("\\Z").next();
+        ArrayList<Student> students = new Gson().fromJson(json, new TypeToken<ArrayList<Student>>() {
+        }.getType());
+        this.students.clear();
+        this.students.addAll(students);
+    }
+
+    public ArrayList<Student> getAll(){
         return students;
-    }
-
-    public ArrayList<Student> deleteStudent(int i) {
-        students.remove(i);
-        return students;
-    }
-
-    @SuppressWarnings("unchecked")
-    public void saveToFile(String path) {
-        JSONArray studentJsonArray = new JSONArray();
-        for (Student student : students) {
-            JSONObject studentObject = new JSONObject();
-            studentObject.put("id", student.getId());
-            studentObject.put("firstname", student.getFirstName());
-            studentObject.put("lastname", student.getLastName());
-            studentObject.put("classname", student.getClassName());
-            studentObject.put("birthday", student.getBirthDay());
-            studentObject.put("address", student.getAddress());
-            studentJsonArray.add(studentObject);
-        }
-        try {
-            FileWriter studentsJson = new FileWriter(path);
-            studentsJson.write(studentJsonArray.toJSONString());
-            studentsJson.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    public void loadFromFile(String path) {
-        JSONParser jsonParser = new JSONParser();
-        try (FileReader fileReader = new FileReader(path)) {
-            Object obj = jsonParser.parse(fileReader);
-            JSONArray studentJsonArray = (JSONArray) obj;
-            for (int i = 0; i < studentJsonArray.size(); i++) {
-                JSONObject studentJsonObject = (JSONObject) studentJsonArray.get(i);
-                Student student = new Student.StudentBuilder()
-                        .setId((Long) studentJsonObject.get("id"))
-                        .setFirstName((String) studentJsonObject.get("firstname"))
-                        .setLastName((String) studentJsonObject.get("lastname"))
-                        .setBirthDay((Calendar) studentJsonObject.get("birthday"))
-                        .setAddress((String) studentJsonObject.get("address"))
-                        .build();
-                students.add(student);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
     }
 
     public Student getById(long id) {

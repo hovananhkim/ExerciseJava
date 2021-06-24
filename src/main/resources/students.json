@@ -1,1 +1,17 @@
-[{"firstname":"Kim","address":"Hoa Minh - Lien Chieu","classname":"Class 1","id":1,"lastname":"Ho"}]
+[
+  {
+    "id": 5,
+    "firstName": "Kim",
+    "lastName": "Chon",
+    "birthday": {
+      "year": 1999,
+      "month": 1,
+      "dayOfMonth": 21,
+      "hourOfDay": 11,
+      "minute": 33,
+      "second": 10
+    },
+    "className": "Class 5",
+    "address": "Hoa Minh - Lien Chieu"
+  }
+]

@@ -1,10 +1,11 @@
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Student {
     private long id;
     private String firstName;
     private String lastName;
-    private Calendar birthDay;
+    private Calendar birthday;
     private String className;
     private String address;
 
@@ -12,7 +13,7 @@ public class Student {
         private long id;
         private String firstName;
         private String lastName;
-        private Calendar birthDay;
+        private Calendar birthday;
         private String className;
         private String address;
 
@@ -31,8 +32,9 @@ public class Student {
             return this;
         }
 
-        public StudentBuilder setBirthDay(Calendar birthDay) {
-            this.birthDay = birthDay;
+        public StudentBuilder setBirthday(Calendar birthday) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            this.birthday = birthday;
             return this;
         }
 
@@ -52,7 +54,7 @@ public class Student {
             student.firstName = this.firstName;
             student.lastName = this.lastName;
             student.className = this.className;
-            student.birthDay = this.birthDay;
+            student.birthday = this.birthday;
             student.address = this.address;
             return student;
         }
@@ -70,8 +72,8 @@ public class Student {
         return lastName;
     }
 
-    public Calendar getBirthDay() {
-        return birthDay;
+    public Calendar getBirthday() {
+        return birthday;
     }
 
     public String getClassName() {
