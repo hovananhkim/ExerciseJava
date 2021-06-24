@@ -1,23 +1,36 @@
 public class String11 {
-    public String sub(String minuend, String subtrahend) {
-        if (minuend.equals(subtrahend)) {
-            return "0";
-        }
-        if (minuend.length() > subtrahend.length() || (minuend.length() == subtrahend.length() && minuend.compareTo(subtrahend) > 0)) {
-            return subMaxMin(minuend, subtrahend).toString();
-        }
 
-        return subMaxMin(subtrahend, minuend).insert(0, "-").toString();
-    }
-
-    public int getDigitFromRight(String str, int position) {
+    private int getDigitFromRight(String str, int position) {
         if (str.length() > position) {
             return str.charAt(str.length() - position - 1) - '0';
         }
         return 0;
     }
 
-    public StringBuilder subMaxMin(String max, String min) {
+    private String removeZeroPadding(String str){
+        int foundIndex = 0;
+        while (foundIndex < str.length() - 1 && str.charAt(foundIndex) == '0'){
+            foundIndex ++;
+        }
+        return str.substring(foundIndex);
+    }
+
+    public String subtract(String a, String b) {
+        a = removeZeroPadding(a);
+        b = removeZeroPadding(b);
+
+        if(b.length() > a.length()){
+            return  "-" + internalSubtract(b, a);
+        }
+        else if((a.length() == b.length() && a.compareTo(b) < 0)){
+            return  "-" + internalSubtract(b, a);
+        }
+
+        return internalSubtract(a, b);
+    }
+
+    private String internalSubtract(String max, String min) {
+
         StringBuilder result = new StringBuilder();
         int memory = 0;
         for (int i = 0; i < max.length(); i++) {
@@ -29,9 +42,7 @@ public class String11 {
             }
             result.insert(0, currentMinus);
         }
-        while (result.toString().startsWith("0")) {
-            result.replace(0, 1, "");
-        }
-        return result;
+
+        return removeZeroPadding(result.toString());
     }
 }
