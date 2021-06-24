@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -36,7 +37,7 @@ public class StudentController {
             studentObject.put("firstname", student.getFirstName());
             studentObject.put("lastname", student.getLastName());
             studentObject.put("classname", student.getClassName());
-//            studentObject.put("birthday", student.getBirthDay());
+            studentObject.put("birthday", student.getBirthDay());
             studentObject.put("address", student.getAddress());
             studentJsonArray.add(studentObject);
         }
@@ -60,6 +61,9 @@ public class StudentController {
                 Student student = new Student.StudentBuilder()
                         .setId((Long) studentJsonObject.get("id"))
                         .setFirstName((String) studentJsonObject.get("firstname"))
+                        .setLastName((String) studentJsonObject.get("lastname"))
+                        .setBirthDay((Calendar) studentJsonObject.get("birthday"))
+                        .setAddress((String) studentJsonObject.get("address"))
                         .build();
                 students.add(student);
             }
