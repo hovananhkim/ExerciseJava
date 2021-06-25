@@ -34,7 +34,7 @@ public class StudentController {
     public void loadFromFile(String path) throws FileNotFoundException {
         FileReader fileReader = new FileReader(path);
         String json = new Scanner(fileReader).useDelimiter("\\Z").next();
-        HashMap<Long,Student> students = new Gson().fromJson(json, new TypeToken<HashMap<Long,Student>>() {
+        HashMap<Long, Student> students = new Gson().fromJson(json, new TypeToken<HashMap<Long, Student>>() {
         }.getType());
         this.map.clear();
         this.map.putAll(students);
@@ -42,7 +42,7 @@ public class StudentController {
 
     public ArrayList<Student> getAll() {
         ArrayList<Student> students = new ArrayList<>();
-        for (Student student:map.values()){
+        for (Student student : map.values()) {
             students.add(student);
         }
         return students;
