@@ -4,10 +4,12 @@ import java.util.Comparator;
 
 public class Array10 {
     public int[] insertNumber(int[] array, int x) {
-        int length = array.length;
-        array = Arrays.copyOf(array, length+1);
-        array[length] = x;
-        Arrays.sort(array);
-        return array;
+        int[] result = new int[array.length + 1];
+        for (int i = 0; i < array.length; i++) {
+            result[i] = array[i];
+        }
+        result[array.length] = x;
+        Arrays.sort(result);
+        return result;
     }
 }
