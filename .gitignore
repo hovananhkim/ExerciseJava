@@ -25,4 +25,4 @@ build/**
 .gradle/**
 .idea/**
 out/**
-src/main/resources/students.json
+src/main/resources/temp_students.json
