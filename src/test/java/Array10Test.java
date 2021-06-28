@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class Array10Test {
     @Test
-    public void test_addNumber() {
+    public void test_insertNumber() {
         int[] input = {1, 2, 3, 9, 12, 13};
         int[] output = {1, 2, 3, 5, 9, 12, 13};
         int[] output2 = {1, 2, 3, 3, 9, 12, 13};
