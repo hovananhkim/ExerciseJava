@@ -33,7 +33,6 @@ public class Student {
         }
 
         public StudentBuilder setBirthday(Calendar birthday) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             this.birthday = birthday;
             return this;
         }
@@ -50,12 +49,12 @@ public class Student {
 
         public Student build() {
             Student student = new Student();
-            student.id = this.id;
-            student.firstName = this.firstName;
-            student.lastName = this.lastName;
-            student.className = this.className;
-            student.birthday = this.birthday;
-            student.address = this.address;
+            student.setId(this.id);
+            student.setFirstName(this.firstName);
+            student.setLastName(this.lastName);
+            student.setClassName(this.className);
+            student.setBirthday(this.birthday);
+            student.setAddress(this.address);
             return student;
         }
     }
@@ -82,5 +81,29 @@ public class Student {
 
     public String getAddress() {
         return address;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setBirthday(Calendar birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
