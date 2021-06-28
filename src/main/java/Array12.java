@@ -17,6 +17,6 @@ public class Array12 {
         if (check.size() == 0) {
             return true;
         }
-        return a[check.get(0)] == b[check.get(1)] && a[check.get(1)] == b[check.get(0)];
+        return a[check.get(0)] == b[check.get(1)] & a[check.get(1)] == b[check.get(0)];
     }
 }
