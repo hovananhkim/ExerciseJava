@@ -1,23 +1,23 @@
 import java.util.ArrayList;
 
-public class StackGeneric {
-    private ArrayList<Object> genericStack = new ArrayList<>();
+public class StackGeneric<T> {
+    private ArrayList<T> genericStack = new ArrayList<>();
 
-    public void push(Object e) {
+    public void push(T e) {
         genericStack.add(e);
     }
 
-    public Object pop() {
-        Object num = genericStack.get(genericStack.size() - 1);
+    public T pop() {
+        T t = genericStack.get(genericStack.size() - 1);
         genericStack.remove(genericStack.size() - 1);
-        return num;
+        return t;
     }
 
-    public Object peek() {
+    public T peek() {
         return genericStack.get(genericStack.size() - 1);
     }
 
-    public int search(Object e) {
+    public int search(T e) {
         if (genericStack.lastIndexOf(e) >= 0) {
             return genericStack.size() - genericStack.lastIndexOf(e) - 1;
         }
@@ -28,7 +28,7 @@ public class StackGeneric {
         return genericStack.isEmpty();
     }
 
-    public ArrayList<Object> getAll() {
+    public ArrayList<T> getAll() {
         return genericStack;
     }
 }
