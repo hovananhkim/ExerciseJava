@@ -11,10 +11,12 @@ public class Array12Test {
         int[] a4 = {3, 2, 3, 7, 8};
         int[] a5 = {3, 2, 3, 7, 8};
         int[] a6 = {3, 7, 3, 2, 8};
+        int[] a7 = {4, 7, 3, 2, 8};
         assertEquals(new Array12().arrayEquals(a1, a2), false);
         assertEquals(new Array12().arrayEquals(a1, a3), false);
         assertEquals(new Array12().arrayEquals(a1, a4), false);
         assertEquals(new Array12().arrayEquals(a5, a4), true);
         assertEquals(new Array12().arrayEquals(a6, a4), true);
+        assertEquals(new Array12().arrayEquals(a6, a7), false);
     }
 }
