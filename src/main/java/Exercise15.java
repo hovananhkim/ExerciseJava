@@ -1,7 +1,13 @@
 public class Exercise15 {
     public int binaryReverse(int n) {
-        StringBuilder result = new StringBuilder(Integer.toBinaryString(n));
-        result = result.reverse();
-        return Integer.parseInt(result.toString(), 2);
+        int rev = 0;
+        while (n > 0) {
+            rev <<= 1;
+            if ((n & 1) == 1) {
+                rev ^= 1;
+            }
+            n >>= 1;
+        }
+        return rev;
     }
 }
