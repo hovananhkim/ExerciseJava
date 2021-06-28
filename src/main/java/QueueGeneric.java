@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 
-public class QueueGeneric {
-    private ArrayList<Object> genericQueue = new ArrayList<>();
+public class QueueGeneric<T> {
+    private ArrayList<T> genericQueue = new ArrayList<>();
     private final int size = 5;
 
     public int size() {
         return genericQueue.size();
     }
 
-    public boolean add(Object e) throws Exception {
+    public boolean add(T e) throws Exception {
         if (size() == size) {
             throw new Exception("Stack over flow");
         }
@@ -16,7 +16,7 @@ public class QueueGeneric {
         return true;
     }
 
-    public boolean offer(Object e) {
+    public boolean offer(T e) {
         if (size() == size) {
             return false;
         }
@@ -24,39 +24,39 @@ public class QueueGeneric {
         return true;
     }
 
-    public Object element() throws Exception {
+    public T element() throws Exception {
         if (size() == 0) {
             throw new Exception("Queue is empty");
         }
         return genericQueue.get(0);
     }
 
-    public Object peek() {
+    public T peek() {
         if (size() == 0) {
             return null;
         }
         return genericQueue.get(0);
     }
 
-    public Object remove() throws Exception {
+    public T remove() throws Exception {
         if (size() == 0) {
             throw new Exception("Queue is empty");
         }
-        Object object = genericQueue.get(0);
+        T object = genericQueue.get(0);
         genericQueue.remove(0);
         return object;
     }
 
-    public Object poll() {
+    public T poll() {
         if (size() == 0) {
             return null;
         }
-        Object object = genericQueue.get(0);
+        T object = genericQueue.get(0);
         genericQueue.remove(0);
         return object;
     }
 
-    public ArrayList<Object> getAll() {
+    public ArrayList<T> getAll() {
         return genericQueue;
     }
 }

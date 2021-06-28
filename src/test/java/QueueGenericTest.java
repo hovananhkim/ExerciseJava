@@ -6,7 +6,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QueueGenericTest {
-    QueueGeneric queueNumber = new QueueGeneric();
+    QueueGeneric<Integer> queueNumber = new QueueGeneric<>();
 
     @Test
     public void test_queueNumber() throws Exception {
