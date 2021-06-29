@@ -1,3 +1,6 @@
+package ArrayTest;
+
+import Array.Array15;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
