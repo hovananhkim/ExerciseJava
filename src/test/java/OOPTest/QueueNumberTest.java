@@ -1,3 +1,6 @@
+package OOPTest;
+
+import OOP.QueueNumber;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
