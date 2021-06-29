@@ -3,6 +3,10 @@ package ArrayTest;
 import Array.Array12;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Array12Test {
@@ -23,5 +27,15 @@ public class Array12Test {
         assertEquals(new Array12().arrayEquals(a1, a6), false);
         assertEquals(new Array12().arrayEquals(a1, a7), true);
         assertEquals(new Array12().arrayEquals(a1, a8), false);
+        assertEquals(new Array12().arrayEquals(shuffle(a6), a6), true);
+        assertEquals(new Array12().arrayEquals(shuffle(a7), a7), true);
+        assertEquals(new Array12().arrayEquals(shuffle(a8), a8), true);
+    }
+    
+    private static int[] shuffle(int[] array){
+        Integer[] intArray = Arrays.stream(array).boxed().toArray(Integer[]::new);
+        List<Integer> intList = Arrays.asList(intArray);
+        Collections.shuffle(intList);
+        return intList.stream().mapToInt(i->i).toArray();
     }
 }
