@@ -1,3 +1,5 @@
+package String;
+
 public class String06 {
     public String shortcutString(String str) {
         StringBuilder result = new StringBuilder();
