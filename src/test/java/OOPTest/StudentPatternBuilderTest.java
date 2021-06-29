@@ -1,3 +1,7 @@
+package OOPTest;
+
+import OOP.Student;
+import OOP.StudentController;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
