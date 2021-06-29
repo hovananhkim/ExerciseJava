@@ -1,6 +1,7 @@
-import org.junit.jupiter.api.Test;
+package ArrayTest;
 
-import java.util.Arrays;
+import Array.Array10;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
