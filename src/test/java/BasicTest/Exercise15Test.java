@@ -1,3 +1,6 @@
+package BasicTest;
+
+import Basic.Exercise15;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

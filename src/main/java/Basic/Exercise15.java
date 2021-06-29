@@ -1,3 +1,5 @@
+package Basic;
+
 public class Exercise15 {
     public int binaryReverse(int n) {
         int rev = 0;
