@@ -19,18 +19,7 @@ public class StackNumber {
         return numberStack.get(numberStack.size() - 1);
     }
 
-    public int search(Number e) {
-        if (numberStack.lastIndexOf(e) >= 0) {
-            return numberStack.size() - numberStack.lastIndexOf(e) - 1;
-        }
-        return -1;
-    }
-
     public boolean empty() {
         return numberStack.isEmpty();
-    }
-
-    public ArrayList<Number> getAll() {
-        return numberStack;
     }
 }

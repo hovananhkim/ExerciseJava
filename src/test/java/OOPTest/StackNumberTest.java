@@ -1,30 +1,35 @@
 package OOPTest;
 
 import OOP.StackNumber;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StackNumberTest {
-    private StackNumber stackNumber = new StackNumber();
+    private static StackNumber stackNumber = new StackNumber();
+
+    @BeforeAll
+    public static void init() {
+        stackNumber.push(5);
+        stackNumber.push(6);
+        stackNumber.push(1);
+    }
 
     @Test
-    public void test_stackNumber() {
-        stackNumber.push(6);
-        assertEquals(stackNumber.getAll(), new ArrayList<>(Arrays.asList(6)));
-        stackNumber.push(9);
-        assertEquals(stackNumber.getAll(), new ArrayList<>(Arrays.asList(6, 9)));
-        assertEquals(stackNumber.peek(), 9);
-        assertEquals(stackNumber.getAll(), new ArrayList<>(Arrays.asList(6, 9)));
-        assertEquals(stackNumber.pop(), 9);
-        assertEquals(stackNumber.getAll(), new ArrayList<>(Arrays.asList(6)));
-        stackNumber.push(3);
-        stackNumber.push(12);
-        assertEquals(stackNumber.search(0), -1);
-        assertEquals(stackNumber.search(3), 1);
-        assertEquals(stackNumber.empty(), false);
+    public void test_peek() {
+        assertEquals(stackNumber.peek(),1);
     }
+
+    @Test
+    public void test_pop() {
+        assertEquals(stackNumber.pop(), 1);
+        assertEquals(stackNumber.pop(), 6);
+    }
+
+    @Test
+    public void test_empty() {
+        assertFalse(stackNumber.empty());
+    }
+
 }
