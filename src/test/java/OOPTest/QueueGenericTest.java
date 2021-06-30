@@ -1,42 +1,33 @@
 package OOPTest;
 
 import OOP.QueueGeneric;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QueueGenericTest {
-    QueueGeneric<Integer> queueNumber = new QueueGeneric<>();
+    public static QueueGeneric<String> queueString = new QueueGeneric<>();
+
+    @BeforeAll
+    public static void init() {
+        queueString.enqueue("Ho");
+        queueString.enqueue("Van");
+        queueString.enqueue("Kim");
+    }
 
     @Test
-    public void test_queueNumber() throws Exception {
-        assertEquals(queueNumber.peek(), null);
+    public void test_dequeue() throws Exception {
+        assertEquals("Ho", queueString.dequeue());
+        assertEquals("Van", queueString.dequeue());
+        assertEquals("Kim", queueString.dequeue());
         assertThrows(Exception.class, () -> {
-            queueNumber.element();
+            queueString.dequeue();
         });
-        assertThrows(Exception.class, () -> {
-            queueNumber.remove();
-        });
-        assertEquals(queueNumber.poll(), null);
-        queueNumber.add(3);
-        queueNumber.add(6);
-        queueNumber.add(10);
-        assertEquals(queueNumber.getAll(), new ArrayList<>(Arrays.asList(3, 6, 10)));
-        queueNumber.offer(13);
-        queueNumber.add(6);
-        assertThrows(Exception.class, () -> {
-            queueNumber.add(5);
-        });
-        assertEquals(queueNumber.getAll(), new ArrayList<>(Arrays.asList(3, 6, 10, 13, 6)));
-        assertEquals(queueNumber.element(), 3);
+    }
 
-        assertEquals(queueNumber.offer(6), false);
-        assertEquals(queueNumber.peek(), 3);
-        assertEquals(queueNumber.remove(), 3);
-        queueNumber.poll();
-        assertEquals(queueNumber.getAll(), new ArrayList<>(Arrays.asList(10, 13, 6)));
+    @Test
+    public void test_isEmpty() {
+        assertTrue(queueString.isEmpty());
     }
 }
