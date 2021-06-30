@@ -19,18 +19,7 @@ public class StackGeneric<T> {
         return genericStack.get(genericStack.size() - 1);
     }
 
-    public int search(T e) {
-        if (genericStack.lastIndexOf(e) >= 0) {
-            return genericStack.size() - genericStack.lastIndexOf(e) - 1;
-        }
-        return -1;
-    }
-
     public boolean empty() {
         return genericStack.isEmpty();
-    }
-
-    public ArrayList<T> getAll() {
-        return genericStack;
     }
 }

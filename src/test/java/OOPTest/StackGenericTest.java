@@ -1,26 +1,34 @@
 package OOPTest;
 
 import OOP.StackGeneric;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StackGenericTest {
-    private StackGeneric<String> stackGeneric = new StackGeneric<>();
+    public static StackGeneric<String> stackGeneric = new StackGeneric<>();
+
+    @BeforeAll
+    public static void init() {
+        stackGeneric.push("Thu2");
+        stackGeneric.push("Thu3");
+        stackGeneric.push("Thu4");
+    }
 
     @Test
-    public void test_stackGeneric() {
-        stackGeneric.push("p");
-        assertEquals(stackGeneric.peek(), "p");
-        stackGeneric.push("9");
-        stackGeneric.push("t");
-        assertEquals(stackGeneric.pop(), "t");
-        assertEquals(stackGeneric.getAll(), new ArrayList<>(Arrays.asList("p", "9")));
-        assertEquals(stackGeneric.empty(), false);
-        assertEquals(stackGeneric.search("p"), 1);
-        assertEquals(stackGeneric.search("pa"), -1);
+    public void test_peek() {
+        assertEquals(stackGeneric.peek(), "Thu4");
+    }
+
+    @Test
+    public void test_pop() {
+        assertEquals(stackGeneric.pop(), "Thu4");
+        assertEquals(stackGeneric.pop(), "Thu3");
+    }
+
+    @Test
+    public void test_empty() {
+        assertFalse(stackGeneric.empty());
     }
 }
